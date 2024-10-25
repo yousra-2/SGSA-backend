@@ -27,8 +27,8 @@ public class Etudiant implements Serializable {
 
     private String programme;
 
-    @Column(nullable = false)
-    private String role; // Champ pour le rôle
+//    @Column(nullable = false)
+//    private String role; // Champ pour le rôle
 
     @OneToMany(mappedBy = "etudiant", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore // Prevent serialization
@@ -99,11 +99,11 @@ public class Etudiant implements Serializable {
         this.programme = programme;
     }
 
-    public String getRole() {
-        return role; // Getter pour le rôle
-    }
-
-    public void setRole(String role) {
-        this.role = role; // Setter pour le rôle
-    }
+//    public String getRole() {
+//        return role; // Getter pour le rôle
+//    }
+//
+//    public void setRole(String role) {
+//        this.role = role; // Setter pour le rôle
+//    }
 }

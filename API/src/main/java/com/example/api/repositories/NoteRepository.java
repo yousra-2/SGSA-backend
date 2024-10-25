@@ -19,4 +19,14 @@ public interface NoteRepository extends JpaRepository<Note, Long> {
     List<Object[]> findByMatiere_Id(@Param("matiereId") Long matiereId);
 
     Optional<Note> findByEtudiant_IdAndMatiere_Id(Long etudiantId, Long matiereId);
+
+//    @Query("SELECT n, m.nom FROM Note n JOIN n.matiere m WHERE n.etudiant.id = :etudiantId")
+//    List<Note> findNotesByEtudiantWithMatiere(@Param("etudiantId") Long etudiantId);
+
+    @Query("SELECT n, m.nom FROM Note n JOIN n.matiere m WHERE n.etudiant.id = :etudiantId")
+    List<Object[]> findNotesByEtudiantWithMatiere(@Param("etudiantId") Long etudiantId);
+
+    // Récupérer toutes les notes d'un étudiant par matière
+    List<Note> findByEtudiant_Id(Long etudiantId);
+
 }

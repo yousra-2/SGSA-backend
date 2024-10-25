@@ -146,7 +146,26 @@ public class AccountController {
     // Méthode pour récupérer l'ID de l'utilisateur à partir de l'authentification
     private int getUserIdFromAuthentication(Authentication authentication) {
         String username = authentication.getName();
+
+        // Vérification si l'utilisateur est un enseignant
         Enseignant enseignant = enseignantRepository.findByUsername(username);
-        return (enseignant != null) ? enseignant.getId() : -1; // Retourne -1 si l'enseignant n'est pas trouvé
+        if (enseignant != null) {
+            return enseignant.getId();
+        }
+
+        // Vérification si l'utilisateur est un étudiant
+        Etudiant etudiant = etudiantRepository.findByUsername(username);
+        if (etudiant != null) {
+            return etudiant.getId();
+        }
+
+        // Vérification si l'utilisateur est un directeur
+        Directeur directeur = directeurRepository.findByUsername(username);
+        if (directeur != null) {
+            return directeur.getId();
+        }
+
+        // Retourne -1 si l'utilisateur n'est pas trouvé dans les trois catégories
+        return -1;
     }
 }

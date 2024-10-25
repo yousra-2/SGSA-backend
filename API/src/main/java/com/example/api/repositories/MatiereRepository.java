@@ -16,4 +16,7 @@ public interface MatiereRepository extends JpaRepository<Matiere, Integer> {
     // Requête pour récupérer les noms et contenus des cours d'une matière par l'ID de la matière
     @Query("SELECT c.nom, c.contenu FROM Cours c WHERE c.matiere.id = :matiereId")
     List<Object[]> findCoursNamesAndContentsByMatiereId(int matiereId);
+
+    // Récupérer toutes les matières d'un module
+    List<Matiere> findByModule_Id(int moduleId);
 }

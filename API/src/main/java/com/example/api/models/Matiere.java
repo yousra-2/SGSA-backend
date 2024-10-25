@@ -9,7 +9,7 @@ import java.util.List;
 public class Matiere {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     private String nom;
 
@@ -29,16 +29,16 @@ public class Matiere {
     public Matiere() {}
 
     // Constructeur avec ID (à utiliser avec prudence)
-    public Matiere(int id) {
+    public Matiere(Long id) {
         this.id = id;
     }
 
     // Getters et Setters
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

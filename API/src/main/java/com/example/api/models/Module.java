@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Module {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private String nom;
 
