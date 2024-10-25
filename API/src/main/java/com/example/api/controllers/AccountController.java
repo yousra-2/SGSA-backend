@@ -156,7 +156,7 @@ public class AccountController {
         // Vérification si l'utilisateur est un étudiant
         Etudiant etudiant = etudiantRepository.findByUsername(username);
         if (etudiant != null) {
-            return etudiant.getId();
+            return Math.toIntExact(etudiant.getId());
         }
 
         // Vérification si l'utilisateur est un directeur
@@ -168,4 +168,5 @@ public class AccountController {
         // Retourne -1 si l'utilisateur n'est pas trouvé dans les trois catégories
         return -1;
     }
+
 }

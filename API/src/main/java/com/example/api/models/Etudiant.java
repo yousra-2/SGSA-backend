@@ -3,7 +3,9 @@ package com.example.api.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import javax.xml.crypto.Data;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -24,9 +26,9 @@ public class Etudiant implements Serializable {
 
     private String password;
     private String phone;
-
-    private String programme;
-
+    private String niveau_etude;
+    private String code_appogee;
+    private Date date_inscription  ;
 //    @Column(nullable = false)
 //    private String role; // Champ pour le rôle
 
@@ -91,13 +93,13 @@ public class Etudiant implements Serializable {
         this.phone = phone;
     }
 
-    public String getProgramme() {
-        return programme;
-    }
-
-    public void setProgramme(String programme) {
-        this.programme = programme;
-    }
+//    public String getProgramme() {
+//        return programme;
+//    }
+//
+//    public void setProgramme(String programme) {
+//        this.programme = programme;
+//    }
 
 //    public String getRole() {
 //        return role; // Getter pour le rôle
@@ -106,4 +108,26 @@ public class Etudiant implements Serializable {
 //    public void setRole(String role) {
 //        this.role = role; // Setter pour le rôle
 //    }
+public String getNiveau_etude() {
+    return niveau_etude;
+}
+
+    public void setNiveau_etude(String niveau_etude) {
+        this.niveau_etude = niveau_etude;
+    }
+    public String getCode_appogee() {
+        return code_appogee;
+    }
+
+    public void setCode_appogee(String code_appogee) {
+        this.code_appogee = code_appogee;
+    }
+    public Date getDate_inscription() {
+        return date_inscription;
+    }
+
+    public void setDate_inscription(Date date_inscription) {
+        this.date_inscription = date_inscription;
+    }
+
 }

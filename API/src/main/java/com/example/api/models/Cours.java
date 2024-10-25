@@ -1,9 +1,11 @@
 package com.example.api.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "cours")
+
 public class Cours {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

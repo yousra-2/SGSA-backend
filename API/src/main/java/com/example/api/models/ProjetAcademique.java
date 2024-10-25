@@ -25,18 +25,19 @@ public class ProjetAcademique implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "enseignant_id", nullable = false)
-    @JsonIgnore // Ignorer si cela cause des problèmes de sérialisation
     private Enseignant enseignant;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "etudiant_id")
-    @JsonIgnore // Ignorer si cela cause des problèmes de sérialisation
     private Etudiant etudiant;
+
 
     @Enumerated(EnumType.STRING)
     private StatutProjet statut; // Enum pour le statut du projet
-
-    private Date dateAffectation;
+    private String Sujet;
+    private String societe;
+    private Date datedebut;
+    private Date datefin;
 
     // Getters and Setters
     public Long getId() {
@@ -94,14 +95,42 @@ public class ProjetAcademique implements Serializable {
     public void setStatut(StatutProjet statut) {
         this.statut = statut;
     }
-
-    public Date getDateAffectation() {
-        return dateAffectation;
+    public String getSujet() {
+        return Sujet;
     }
 
-    public void setDateAffectation(Date dateAffectation) {
-        this.dateAffectation = dateAffectation;
+    public void setSujet(String sujet) {
+        Sujet = sujet;
     }
+    public Date getDatefin() {
+        return datefin;
+    }
+
+    public void setDatefin(Date datefin) {
+        this.datefin = datefin;
+    }
+    public Date getDatedebut() {
+        return datedebut;
+    }
+
+    public void setDatedebut(Date datedebut) {
+        this.datedebut = datedebut;
+    }
+    public String getSociete() {
+        return societe;
+    }
+
+    public void setSociete(String societe) {
+        this.societe = societe;
+    }
+
+//    public Date getDateAffectation() {
+//        return dateAffectation;
+//    }
+//
+//    public void setDateAffectation(Date dateAffectation) {
+//        this.dateAffectation = dateAffectation;
+//    }
 
     // Enum pour le type de projet
     public enum TypeProjet {
